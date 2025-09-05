@@ -81,16 +81,27 @@
   const sidebar = document.getElementById("sidebar");
   const backBtn = document.querySelector(".back-btn");
 
+  // helper: disable/enable scrolling
+  function toggleScroll(disable) {
+    if (disable) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }
+
   // Toggle sidebar on user button click
   userBtn.addEventListener("click", (e) => {
     e.stopPropagation(); // prevent triggering document click
     sidebar.classList.toggle("active");
+    toggleScroll(sidebar.classList.contains("active"));
   });
 
   // Close sidebar when clicking anywhere else
   document.addEventListener("click", (e) => {
     if (!sidebar.contains(e.target) && !userBtn.contains(e.target)) {
       sidebar.classList.remove("active");
+      toggleScroll(false);
     }
   });
 
@@ -99,6 +110,7 @@
     backBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       sidebar.classList.remove("active");
+      toggleScroll(false);
     });
   }
 </script>
