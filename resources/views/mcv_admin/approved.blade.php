@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My ComplianceView Dashboard - Approved</title>
+  <title>My ComplianceView Dashboard</title>
 
-  {{-- Fonts & Icons --}}
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  {{-- CSS --}}
-  <link rel="stylesheet" href="{{ asset('css/mcv_admin/style.css') }}" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ asset('css/mcv_admin/style.css') }}">
 </head>
-
 <body>
+  
   <div class="content-wrapper">
-    {{-- Navbar --}}
-    @include('mcv_admin.partials.navbar_drop')
+
+    {{-- Navbar (dropdown version) --}}
+    @include('mcv_admin.partials.navbar')
 
     <main>
       <header>
@@ -28,7 +29,7 @@
         </div>
       </header>
 
-      {{-- Search Filters --}}
+      {{-- Search --}}
       <div class="table-header">
         <div class="search-input-group">
           <input type="text" class="search-input" data-col="0" placeholder="🔍︎ Search Dept">
@@ -37,20 +38,34 @@
         </div>
       </div>
 
-      {{-- Table Action Buttons --}}
+      {{-- Action Buttons --}}
       <div class="table-header">
-        <div></div>
-        <div class="table-actions">
-          <button><i class="fa-solid fa-trash"></i> Delete</button>
-          <button><i class="fa-solid fa-filter"></i> Filter</button>
-          <button><i class="fa-solid fa-download"></i> Export</button>
-          <button class="add-user" onclick="window.location.href='{{ url('add-user') }}'">
-            <i class="fa-solid fa-user-plus"></i> Add User
-          </button>
-        </div>
-      </div>
+  <div class="button-input-group">
+    <button class="search-btn btn-dark" onclick="window.location.href='{{ url('report') }}'">
+      General
+    </button>
+    <button class="search-btn btn-gray" onclick="window.location.href='{{ url('compliance') }}'">
+      Compliance
+    </button>
+    <button class="search-btn btn-dark" onclick="window.location.href='{{ url('upcoming') }}'">
+      Upcoming
+    </button>
+    <button class="search-btn btn-gray" onclick="window.location.href='{{ url('pending') }}'">
+      Pending
+    </button>    
+  </div>
 
-      {{-- Data Table --}}
+  <div class="table-actions">
+    <button><i class="fa-solid fa-trash"></i> Delete</button>
+    <button><i class="fa-solid fa-filter"></i> Filter</button>
+    <button><i class="fa-solid fa-download"></i> Export</button>
+    <button class="add-user" onclick="window.location.href='{{ url('add-user') }}'">
+      <i class="fa-solid fa-user-plus"></i> Add User
+    </button>
+  </div>
+</div>
+
+      {{-- Table --}}
       <div class="table-wrapper">
         <table id="Table" class="data-table">
           <thead>
@@ -66,226 +81,189 @@
             </tr>
           </thead>
           <tbody>
-            {{-- Example Static Rows --}}
-           
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="bold" data-label="Department">Development</td>
-                <td data-label="Name">Sanskar</td>
-                <td data-label="Email">sanskarsharma0119@gmail.com</td>
-                <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
-                <td data-label="Phone">1234567890</td>
-                <td data-label="Username">Kunal@f1infotech.com</td>
-                <td class="status" data-label="Status">Active</td>
-                <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
-                </td>
-              </tr>
-              
-          
+            {{-- Example row (replace with dynamic data later) --}}
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="bold" data-label="Department">Development</td>
+              <td data-label="Name">Sanskar</td>
+              <td data-label="Email">sanskarsharma0119@gmail.com</td>
+              <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
+              <td data-label="Phone">1234567890</td>
+              <td data-label="Username">Kunal@f1infotech.com</td>
+              <td class="status" data-label="Status">Active</td>
+              <td data-label="Action">
+                <button class="edit-btn" onclick="window.location.href='{{ url('edit-user') }}'">Edit</button>
+              </td>
+            </tr>
+            
+            {{-- Repeat rows dynamically with @foreach later --}}
           </tbody>
         </table>
       </div>
@@ -295,9 +273,8 @@
   </div>
 
   {{-- Footer --}}
-  @include('mcv_user.partials.footer')
+  @include('mcv_admin.partials.footer')
 
-  {{-- JS --}}
-  <script src="{{ asset('js/mcv_user/script.js') }}"></script>
-</body>
-</html>
+  <!-- Scripts -->
+  <script src="{{ asset('js/mcv_admin/script.js') }}"></script>
+</bod

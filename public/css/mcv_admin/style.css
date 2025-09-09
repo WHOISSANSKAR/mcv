@@ -605,6 +605,14 @@ main {
   flex-direction: column;
 }
 
+.button-input-group {
+  display: flex;
+  gap: 8px; /* space between buttons or inputs */
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  align-items: center; /* vertically center buttons/inputs */
+  color:#0e1323 !important;
+  padding-bottom: 10px;
+}
 
 
 /* ===================== SIDEBAR ===================== */
@@ -794,18 +802,22 @@ main {
   }
 
   /* Hamburger */
-  .hamburger {
-    display: block;
-    position: relative;
-    top: 15px; left: 15px;
-    background: #0e1323;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    z-index: 1100;
-    width: 40px;
-  }
+  /* Hamburger */
+.hamburger {
+  display: block;
+  position: fixed;   /* instead of relative */
+  top: 15px;
+  left: 15px;
+  background: #0e1323;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1100;
+  width: 40px;
+  height: 40px;
+}
+
 
   main, header {
     margin-top: 10px;
@@ -918,3 +930,67 @@ main {
     display: block;
   }
 }
+@media (max-width: 768px) {
+  /* Make search input fields full width */
+  .search-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .search-input-group .search-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  
+}
+
+/* Alternating button colors */
+.btn-dark {
+  background-color: #0e1323;  /* dark blue */
+  color: white;
+}
+
+.btn-dark:hover {
+  background-color: #1c2233;
+}
+
+.btn-gray {
+  background-color: #c3c2c2; /* gray */
+  color: #0e1323;
+}
+
+.btn-gray:hover {
+  background-color: #a6a9b0;
+}
+
+/* Existing button styles remain */
+.button-input-group button {
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Responsive 2x2 grid on mobile */
+@media (max-width: 768px) {
+  .button-input-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .button-input-group button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+

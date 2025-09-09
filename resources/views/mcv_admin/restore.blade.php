@@ -43,6 +43,7 @@
 
         {{-- Actions --}}
         <div class="form-actions">
+          <label for="user">Upload Backup File:</label><br /><br/><br/>
           <label class="choose-file" for="fileInput">Choose File</label>
           <input type="file" id="fileInput" style="display:none;" />
           <button class="restore-btn">Restore</button>

@@ -7,11 +7,11 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f7f9fc;
-  color: #111;
+  display: flex !important; 
+  flex-direction: column !important;
+  min-height: 100vh !important;
+  background-color: #f7f9fc !important;
+  color: #111 !important;
 }
 
 .content-wrapper {
@@ -200,6 +200,7 @@ header {
 header h2 {
   font-size: 28px;
   font-weight: 700;
+  color: #0e1323 !important;
 }
 
 /* ===================== SEARCH BAR ===================== */
@@ -345,6 +346,16 @@ button,
 .search-btn:hover {
   background: #e6e9f0;
 }
+
+.add-compliance button {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 40px;
+  font-size: 14px;
+}
 /* === Charts + Calendar Layout === */
 .charts-container {
     display: flex;
@@ -396,6 +407,7 @@ button,
 .calendar-box h3 {
     display: block!important;
     padding-bottom: 20px;
+    color: #0e1323 !important;
 }
 
 /* === Pie Chart Styling === */
@@ -1253,5 +1265,26 @@ main {
 @media (max-width: 768px) {
   .back-btn {
     display: block;
+  }
+}
+
+/* === Mobile: stack ESG button + search bar === */
+@media (max-width: 768px) {
+  .search-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .search-button-group .add-compliance,
+  .search-button-group .search-bar {
+    width: 100%;
+  }
+
+  .search-button-group .add-compliance button,
+  .search-button-group .search-bar input {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

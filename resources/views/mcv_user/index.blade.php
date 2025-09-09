@@ -12,6 +12,7 @@
 
     <!-- Custom CSS (from public/) -->
     <link rel="stylesheet" href="{{ asset('css/mcv_user/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mcv_admin/ESG.css') }}">
 </head>
 <body>
     <div class="content-wrapper">
@@ -25,10 +26,19 @@
                     <h2>Current Compliance Score: 100%</h2>
                 </div>
 
-                <div class="search-bar">
-                    <input type="text" placeholder="Can't find something? Search it here!">
-                    <i class="fas fa-search"></i>
-                </div>
+              <div class="search-button-group">
+  <div class="add-compliance">
+    <a href="{{ url('esg') }}" style="text-decoration: none;">
+      <button><i class="fas fa-plus-circle"></i>&nbsp;ESG</button>
+    </a>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Can't find something? Search it here!">
+    <i class="fas fa-search"></i>
+  </div>
+</div>
+
             </header>
 
             <!-- Charts Section -->

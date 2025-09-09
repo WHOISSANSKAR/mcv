@@ -17,7 +17,7 @@
   <div class="content-wrapper">
 
     {{-- Navbar (dropdown version) --}}
-    @include('mcv_admin.partials.navbar_drop')
+    @include('mcv_admin.partials.navbar')
 
     <main>
       <header>
@@ -38,18 +38,32 @@
         </div>
       </div>
 
-      {{-- Action buttons --}}
+      {{-- Action Buttons --}}
       <div class="table-header">
-        <div></div>
-        <div class="table-actions">
-          <button><i class="fa-solid fa-trash"></i> Delete</button>
-          <button><i class="fa-solid fa-filter"></i> Filter</button>
-          <button><i class="fa-solid fa-download"></i> Export</button>
-          <button class="add-user" onclick="window.location.href='{{ url('add-user') }}'">
-            <i class="fa-solid fa-user-plus"></i> Add User
-          </button>
-        </div>
-      </div>
+  <div class="button-input-group">
+    <button class="search-btn btn-dark" onclick="window.location.href='{{ url('report') }}'">
+      General
+    </button>
+    <button class="search-btn btn-gray" onclick="window.location.href='{{ url('compliance') }}'">
+      Compliance
+    </button>
+    <button class="search-btn btn-dark" onclick="window.location.href='{{ url('upcoming') }}'">
+      Upcoming
+    </button>
+    <button class="search-btn btn-gray" onclick="window.location.href='{{ url('approved') }}'">
+      Approved
+    </button>
+  </div>
+
+  <div class="table-actions">
+    <button><i class="fa-solid fa-trash"></i> Delete</button>
+    <button><i class="fa-solid fa-filter"></i> Filter</button>
+    <button><i class="fa-solid fa-download"></i> Export</button>
+    <button class="add-user" onclick="window.location.href='{{ url('add-user') }}'">
+      <i class="fa-solid fa-user-plus"></i> Add User
+    </button>
+  </div>
+</div>
 
       {{-- Data table --}}
       <div class="table-wrapper">

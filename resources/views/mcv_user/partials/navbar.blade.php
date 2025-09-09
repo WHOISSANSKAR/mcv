@@ -27,8 +27,12 @@
         <a><i class="fa-solid fa-plus"></i> Add</a>
         <div class="sub-dropdown-content">
           <a href="{{ url('add-statutory_') }}"><i class="fa-solid fa-file-contract"></i> Statutory</a>
-          <a href="{{ url('add-audit_') }}"><i class="fa-solid fa-clipboard-check"></i> Audit</a>
           <a href="{{ url('add-self_') }}"><i class="fa-solid fa-user-check"></i> Self</a>
+          <a href="{{ url('add-dc_') }}"><i class="fa-solid fa-leaf"></i> DC Sustainability</a>
+          <a href="{{ url('add-geo_') }}"><i class="fa-solid fa-globe"></i> Geo-Spatial</a>
+          <a href="{{ url('add-dpdp_') }}"><i class="fa-solid fa-book"></i> DPDP Act</a>
+          <a href="{{ url('add-cyber_') }}"><i class="fa-solid fa-wifi"></i> Cyber Resiliance</a>
+          <a href="{{ url('add-notices_') }}"><i class="fa-solid fa-bell"></i> Notices</a>  
         </div>
       </div>
       <!-- Manage -->
@@ -36,8 +40,12 @@
         <a><i class="fa-solid fa-people-roof"></i> Manage</a>
         <div class="sub-dropdown-content">
           <a href="{{ url('manage-statutory_') }}"><i class="fa-solid fa-file-contract"></i> Statutory</a>
-          <a href="{{ url('manage-audit_') }}"><i class="fa-solid fa-clipboard-check"></i> Audit</a>
           <a href="{{ url('manage-self_') }}"><i class="fa-solid fa-user-check"></i> Self</a>
+          <a href="{{ url('manage-dc_') }}"><i class="fa-solid fa-leaf"></i> DC Sustainability</a>
+          <a href="{{ url('manage-geo_') }}"><i class="fa-solid fa-globe"></i> Geo-Spatial</a>
+          <a href="{{ url('manage-dpdp_') }}"><i class="fa-solid fa-book"></i> DPDP Act</a>
+          <a href="{{ url('manage-cyber_') }}"><i class="fa-solid fa-wifi"></i> Cyber Resiliance</a>
+          <a href="{{ url('manage-notices_') }}"><i class="fa-solid fa-bell"></i> Notices</a>  
         </div>
       </div>
     </div>
@@ -80,7 +88,7 @@
     <div class="nav-item"><i class="fa-solid fa-globe"></i> General</div>
     <div class="dropdown-content">
       <a href="{{ url('outofoffice_') }}"><i class="fas fa-calendar-times"></i> Out of Office</a>
-      <a href="https://mycomplianceview.com/tns"><i class="fa-solid fa-file-contract"></i> Terms of office</a>
+      <a href="tns_"><i class="fa-solid fa-file-contract"></i> Terms of office</a>
       <a href="{{ url('settings_') }}"><i class="fa-solid fa-gear"></i> Settings</a>
     </div>
   </div>

@@ -39,7 +39,7 @@
                 <td data-label="Start Date">01-04-2025</td>
                 <td data-label="End Date">31-03-2026</td>
                 <td data-label="Action">
-                  <button class="edit-btn" onclick="window.location.href='{{ url('mcv_user/view-self') }}'">View</button>
+                  <button class="edit-btn" onclick="window.location.href='{{ url('/view_') }}'">View</button>
                 </td>
               </tr>
             </tbody>

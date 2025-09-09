@@ -61,9 +61,6 @@ Route::view('/upcoming', 'mcv_admin.upcoming');
 //user
 Route::view('/users', 'mcv_admin.user');
 
-//add-audit
-Route::view('/add-audit_', 'mcv_user.add-audit');
-
 //add-self
 Route::view('/add-self_', 'mcv_user.add-self');
 
@@ -72,6 +69,21 @@ Route::view('/add-statutory_', 'mcv_user.add-statutory');
 
 //add-user
 Route::view('/add-user_', 'mcv_user.add-user');
+
+//add-dc sustainability
+Route::view('/add-dc_', 'mcv_user.add-dc');
+
+//add-geo spatial
+Route::view('/add-geo_', 'mcv_user.add-geo');
+
+//add-dpdp act
+Route::view('/add-dpdp_', 'mcv_user.add-dpdp');
+
+//add-cyber resilience
+Route::view('/add-cyber_', 'mcv_user.add-cyber');
+
+//add-notices
+Route::view('/add-notices_', 'mcv_user.add-notices');
 
 //compliance
 Route::view('/compliance_', 'mcv_user.compliance');
@@ -91,14 +103,26 @@ Route::view('/dpdpact-view_', 'mcv_user.dpdpact-view');
 //edit-user
 Route::view('/edit-user_', 'mcv_user.edit-user');
 
-//manage-audit
-Route::view('/manage-audit_', 'mcv_user.manage-audit');
-
 //manage-self
 Route::view('/manage-self_', 'mcv_user.manage-self');
 
 //manage-statutory
 Route::view('/manage-statutory_', 'mcv_user.manage-statutory');
+
+//manage-dc
+Route::view('/manage-dc_', 'mcv_user.manage-dc');
+
+//manage-geo
+Route::view('/manage-geo_', 'mcv_user.manage-geo');
+
+//manage-dpdp
+Route::view('/manage-dpdp_', 'mcv_user.manage-dpdp');
+
+//manage-cyber
+Route::view('/manage-cyber_', 'mcv_user.manage-cyber');
+
+//manage-self
+Route::view('/manage-notices_', 'mcv_user.manage-notices');
 
 //not-found
 Route::view('/not-found_', 'mcv_user.not-found');
@@ -114,3 +138,6 @@ Route::view('/settings_', 'mcv_user.settings');
 
 //view
 Route::view('/view_', 'mcv_user.view');
+
+//tns
+Route::view('/tns_', 'mcv_user.tns');

@@ -10,6 +10,28 @@
   <link rel="stylesheet" href="{{ asset('css/mcv_user/style.css') }}" />
 </head>
 
+<style>
+table{
+  transform: scale(0.90);
+  transform-origin: top left;
+  display: block;       /* ✅ makes table respect overflow */
+  width: 100%;          /* ✅ constrain inside wrapper */
+  max-width: 100%;      /* ✅ prevent overflow */
+}
+
+.table-wrapper {
+  overflow-x: hidden;   /* ✅ no horizontal scrollbar */
+}
+
+main {
+  overflow-x: hidden;   /* ✅ double safety */
+}
+
+.delete-btn{
+  width: 99%;
+}
+</style>
+
 <body>
 <div class="content-wrapper">
   @include('mcv_user.partials.navbar')
