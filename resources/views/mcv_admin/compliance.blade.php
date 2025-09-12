@@ -253,7 +253,7 @@
             </tr>
             <tr>
               <td class="bold" data-label="Department">Development</td>
-              <td data-label="Name">Sanskar</td>
+              <td data-label="Name">nimit</td>
               <td data-label="Email">sanskarsharma0119@gmail.com</td>
               <td data-label="Company">F1 Infotech Pvt. Ltd.</td>
               <td data-label="Phone">1234567890</td>
@@ -278,4 +278,4 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/mcv_admin/script.js') }}"></script>
-</bod
+</body>

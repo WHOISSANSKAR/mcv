@@ -79,40 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// ===================== REPORTS DROPDOWN MOBILE FIX =====================
-document.addEventListener("DOMContentLoaded", function () {
-  const reportsLink = document.querySelector(".reports-toggle");
-  const reportsDropdown = document.querySelector(".reports-dropdown");
-
-  if (reportsLink && reportsDropdown) {
-    let tappedOnce = false;
-
-    reportsLink.addEventListener("click", function (e) {
-      if (window.innerWidth <= 768) {
-        if (!tappedOnce) {
-          e.preventDefault(); // stop navigation
-          reportsDropdown.classList.toggle("open");
-          tappedOnce = true;
-
-          // reset after 500ms if user doesn’t click again
-          setTimeout(() => (tappedOnce = false), 500);
-        } else {
-          // second tap -> go to link normally
-          tappedOnce = false;
-          window.location.href = reportsLink.getAttribute("href");
-        }
-      }
-    });
-
-    // close dropdown when clicking outside
-    document.addEventListener("click", function (e) {
-      if (!reportsDropdown.contains(e.target) && e.target !== reportsLink) {
-        reportsDropdown.classList.remove("open");
-      }
-    });
-  }
-});
-
 
 // ---------------- ESG Risk Level Distribution ----------------
 const riskColors = ['#254326ff', '#507427ff', '#258130ff', '#20b622ff', '#2e9833ff'];

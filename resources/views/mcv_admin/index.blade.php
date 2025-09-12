@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/mcv_admin/style.css') }}">
 </head>
@@ -21,92 +24,109 @@
         <main>
             <header>
                 <div>
-                    <h2>Dashboard</h2>
-                    <p>See your account information here!</p>
+                    <h2>Current Compliance: 100%</h2>
                 </div>
 
                 <div class="search-bar">
                     <input type="text" placeholder="Can't find something? Search it here!">
                     <i class="fas fa-search"></i>
                 </div>
-                
+
                 <div class="add-compliance">
                     <a href="{{ url('user') }}" class="btn-link">
                         <button><i class="fas fa-plus-circle"></i>&nbsp;Compliance Zone</button>
                     </a>
                 </div>
-               <div class="add-compliance">
-    <a href="{{ url('esg') }}" style="text-decoration: none;">
-        <button><i class="fas fa-plus-circle"></i>&nbsp;ESG</button>
-    </a>
-</div>
 
+                <div class="add-compliance">
+                    <a href="{{ url('esg') }}" style="text-decoration: none;">
+                        <button><i class="fas fa-plus-circle"></i>&nbsp;ESG</button>
+                    </a>
+                </div>
             </header>
 
-            <div class="premium-card">
-                <div class="premium-text">
-                    <h3>Special premium account!</h3>
-                    <p>
-                        With a special premium account, you can do very interesting things!<br>
-                        By purchasing this account, special features will be activated for you that you will be amazed to see!
-                    </p>
-                    <div class="button-group">
-                        <a href="{{ url('purchase') }}"><button><i class="fas fa-shopping-cart"></i> Account purchase</button></a>
-                        <a href="{{ url('feature') }}"><button><i class="fas fa-bolt"></i> View features</button></a>
-                    </div>
+            <!-- Charts Section -->
+            <div class="charts-container">
+                <!-- Compliance Table -->
+                <div class="table-box">
+                    <h3>Compliance</h3>
+                    <table class="compliance-table">
+                        <thead>
+                            <tr>
+                                <th>Comp_id</th>
+                                <th>Compliance</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>REGSTFACTORIES02</td>
+                                <td>REFER TO STATE RULES - II</td>
+                                <td>Sep 10 2025</td>
+                                <td>Sep 11 2025</td>
+                            </tr>
+                            <tr>
+                                <td>REGSTFACTORIES01</td>
+                                <td>REFER TO STATE RULES - I</td>
+                                <td>Sep 3 2025</td>
+                                <td>Sep 10 2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="new-row">New Row</div>
                 </div>
-                <div class="premium-image">
-                    <img src="{{ asset('images/vr_illustration.png') }}" alt="VR Illustration">
+
+                <!-- Calendar -->
+                <div class="calendar-box">
+                    <h3>Calendar</h3>
+                    <div id="calendar"></div>
                 </div>
             </div>
-            
+
+            <!-- Stats Section -->
             <div class="stats">
                 <div class="stat-box">
-                    <div class="icon"><i class="fas fa-users"></i></div>
-                    <div class="change">
-                        <div><i class="fas fa-arrow-up"></i> 1.2%</div>
-                        <div class="sub-label">This Month</div>
+                    <div class="icon"><i class="fa-solid fa-stopwatch"></i></div>
+                    <div class="content">
+                        <div class="label">Overdue</div>
+                        <div class="value">2</div>
                     </div>
-                    <div class="label-value">
-                        <div class="label">All followers</div>
-                        <div class="value">1000</div>
-                    </div>
-                    <a href="{{ url('report') }}" class="info-button">See info</a>
                 </div>
-
                 <div class="stat-box">
-                    <div class="icon"><i class="fas fa-dollar-sign"></i></div>
-                    <div class="change">
-                        <div><i class="fas fa-arrow-up"></i> 21.12%</div>
-                        <div class="sub-label">This Month</div>
+                    <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="content">
+                        <div class="label">Upcoming</div>
+                        <div class="value">5</div>
                     </div>
-                    <div class="label-value">
-                        <div class="label">Total earning</div>
-                        <div class="value">125K</div>
-                    </div>
-                    <a href="{{ url('report') }}" class="info-button">See info</a>
                 </div>
-
                 <div class="stat-box">
-                    <div class="icon"><i class="fas fa-user"></i></div>
-                    <div class="change">
-                        <div><i class="fas fa-arrow-up"></i> 1.2%</div>
-                        <div class="sub-label">This Month</div>
+                    <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="content">
+                        <div class="label">Approved</div>
+                        <div class="value">3</div>
                     </div>
-                    <div class="label-value">
-                        <div class="label">All users</div>
-                        <div class="value">64K</div>
+                </div>
+                <div class="stat-box">
+                    <div class="icon"><i class="fa-solid fa-shield"></i></div>
+                    <div class="content">
+                        <div class="label">Compliance</div>
+                        <div class="value">1</div>
                     </div>
-                    <a href="{{ url('users') }}" class="info-button">See info</a>
                 </div>
             </div>
+
         </main>
     </div>
 
     {{-- Footer partial --}}
     @include('mcv_admin.partials.footer')
 
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
     <!-- Custom JS -->
     <script src="{{ asset('js/mcv_admin/script.js') }}"></script>
+    <script src="{{ asset('js/mcv_admin/dashboard.js') }}"></script>
 </body>
 </html>

@@ -142,6 +142,21 @@ aside h1 img {
   display: flex;
 }
 
+/* Mobile-friendly second-level dropdown */
+@media (max-width: 768px) {
+  .sub-dropdown-content {
+    position: static;   /* stack instead of absolute */
+    display: none;      /* hidden until parent is tapped */
+    margin-left: 0;
+    border-radius: 12px;
+  }
+
+  /* Toggle visibility on tap */
+  .sub-dropdown.open .sub-dropdown-content {
+    display: flex;
+  }
+}
+
 /* ===================== USER CARD ===================== */
 .user-card {
   background-color: #0e1323;
@@ -368,7 +383,7 @@ button,
 /* === Chart Box === */
 .chart-box {
     flex: 1;
-    max-height: 410px;
+    max-height: 400px;
     min-width: 400px;
     background: #fff;
     border-radius: 12px;
@@ -383,7 +398,7 @@ button,
 /* === Calendar Box === */
 .calendar-box {
     flex: 1;
-    max-height: 410px;
+    max-height: 400px;
     min-width: 400px;
     border-radius: 12px;
     padding: 20px;
@@ -838,11 +853,11 @@ tr:hover { background-color: #f9f9f9; }
 
 /* ===================== FOOTER ===================== */
 footer {
-  margin-top: auto;
-  background: #0e1323;
-  color: #fff;
+  background-color: #0e1323;
+  color: white;
   text-align: center;
-  padding: 12px;
+  padding: 15px 20px;
+  margin-top: auto; 
 }
 .page-container {
   display: flex;
@@ -1287,4 +1302,73 @@ main {
     width: 100%;
     box-sizing: border-box;
   }
+}
+
+/* Center the login box */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.logo img {
+    width: 120px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0e1323;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #1a2540;
+}
+
+.error-message {
+    background-color: #ffcccc;
+    color: #900;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
 }

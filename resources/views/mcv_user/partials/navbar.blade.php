@@ -162,4 +162,33 @@
       toggleScroll(false);
     });
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const dropdownLinks = document.querySelectorAll('.sub-dropdown > a');
+
+  dropdownLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation(); // stop the click from reaching document
+
+      const parent = link.parentElement;
+      const isOpen = parent.classList.contains('open');
+
+      // Close all dropdowns first
+      document.querySelectorAll('.sub-dropdown.open')
+        .forEach(item => item.classList.remove('open'));
+
+      // Toggle the clicked one if it was not open
+      if (!isOpen) {
+        parent.classList.add('open');
+      }
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.sub-dropdown.open')
+      .forEach(item => item.classList.remove('open'));
+  });
+});
 </script>

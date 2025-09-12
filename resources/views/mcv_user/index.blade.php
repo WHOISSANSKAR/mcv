@@ -23,7 +23,7 @@
         <main>
             <header>
                 <div>
-                    <h2>Current Compliance Score: 100%</h2>
+                    <h2>Current Compliance: 100%</h2>
                 </div>
 
               <div class="search-button-group">
